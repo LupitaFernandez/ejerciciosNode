@@ -25,16 +25,12 @@ http.createServer (function (req, res) {
         res.end ('Para estar mas cerca tuyo !')
     } 
     
-    
+
     if (req.url == "/preguntas-frecuentes") {
         res.end ('Tus preguntas frecuentes')
     }
 
-
     res.end ("Mi primer servidor") //Mensaje que se envia
-
-
-
 
 
 }).listen(3000, 'localhost')//Parametros => puerto y host
