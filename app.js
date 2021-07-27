@@ -202,11 +202,19 @@ http.createServer((req, res) => {
 	switch (req.url) {
 		// Home
 		case '/':
-            res.write ('Bienvenidos al sitio, donde encontrarás las mejores películas.')
+            res.write ('Bienvenidos al sitio, donde encontrarás las mejores películas. \n') //comenzar abajo
             res.write ('  ')
-            res.write (`Total de películas en cartelera: ${movies.length} `)
-
-
+            res.write (`Total de películas en cartelera: ${movies.length} \n\n\n\n`)
+            
+            let titulos = [];
+            movies.forEach(function(movie){
+                titulos.push(movie.title)
+            })
+            titulos.sort();
+            //console.log(titulos)
+            titulos.forEach(function(titulo){
+                res.write(`${titulo}\n`)
+            })
 
 			res.end();
 			break;
