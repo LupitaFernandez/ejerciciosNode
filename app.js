@@ -253,9 +253,9 @@ http.createServer((req, res) => {
 			res.end();
 			break;
 		case '/contacto':
-			res.write ('Nuestro contactos \n');
+			res.write ('Nuestros contactos \n');
 			res.write ('        \n');
-			res.write ('¿Tenés alguna duda y/o sugerencia? Nos encantaría saber de vos ! Si deseas contactarnos podés escribirnos en las redes sociales. Recordá que también podés consultar la sección de preguntas frecuentes para obtener respuestas inmedatas a los problemas más comunes\n');
+			res.write ('¿Tenés alguna duda y/o sugerencia? Nos encantaría saber de vos ! \nSi deseas contactarnos podés escribirnos en las redes sociales. Recorda que tambien esta la sección de preguntas frecuentes. \n');
 			res.end();
 			break;
 		case '/preguntas-frecuentes':
