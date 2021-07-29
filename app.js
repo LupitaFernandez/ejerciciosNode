@@ -249,14 +249,14 @@ http.createServer((req, res) => {
 				res.write (`Dirección: ${theater.address} \n`);
 				res.write (`Descripción: ${theater.description} \n`);
 				
-			})
-
-
-
+			});
 			res.end();
 			break;
 		case '/contacto':
-			res.end('Contacto');
+			res.write ('Nuestro contactos \n');
+			res.write ('        \n');
+			res.write ('¿Tenés alguna duda y/o sugerencia? Nos encantaría saber de vos ! Si deseas contactarnos podés escribirnos en las redes sociales. Recordá que también podés consultar la sección de preguntas frecuentes para obtener respuestas inmedatas a los problemas más comunes\n');
+			res.end();
 			break;
 		case '/preguntas-frecuentes':
             res.write ('Preguntas frecuentes \n');
@@ -270,6 +270,6 @@ http.createServer((req, res) => {
 			res.end();
 			break;
 		default:
-			res.end('404 not found')
+			res.end('404 not found. I am sorry. ')
 	}
 }).listen(3030, 'localhost', () => console.log('Server running in 3030 port'));
