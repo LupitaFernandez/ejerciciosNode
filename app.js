@@ -236,15 +236,25 @@ http.createServer((req, res) => {
 			let votadas = movies.filter(function(movie){
                 return movie.vote_average>=7
 			});
-
+			
+			let rating=[];
+			votadas.filter(function(peli){
+				return rating.push(peli.vote_average)
+			});
+			//Usando el metodo reduce() obtengo la sumatoria de todos los ratings
+			let sumatoria = rating.reduce(function(acum,num){
+				return acum+num
+			});
+			//Obtengo el promedio diviendo por el total de elementos y utilizando el método toFixed() limito a dos decimales el resultado de la división
+			let promedio =(sumatoria/rating.length).toFixed(2);
 
             res.write('Titulo: Mas Votadas\n');
             res.write('               \n');
 			res.write(`Total de peliculas ${votadas.length}\n`);
+			res.write(`Promedio de rating ${promedio}\n\n`);
             res.write('                   \n');
             res.write('Listado de Películas\n');
             res.write('              \n\n');
-
 
 			votadas.forEach(function(movie){
                 res.write(`Titulo ${movie.title}\n`)
@@ -252,6 +262,8 @@ http.createServer((req, res) => {
                 res.write(`Rating: ${movie.vote_average}\n`)
                 res.write(`Reseña: ${movie.overview}\n\n\n`)
             })
+
+
 			res.end();
 			break;
 		case '/sucursales':
