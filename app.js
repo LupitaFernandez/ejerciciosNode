@@ -230,11 +230,30 @@ http.createServer((req, res) => {
             })
 			res.end();
 			break;
+
 		case '/mas-votadas':
-			res.end('Más Votadas');
+
+			
+			res.end();
 			break;
 		case '/sucursales':
-			res.end('Sucursales');
+			res.write ('Nuestras sucursales');
+			res.write ('              ');
+			res.write (`Total de salas: ${theaters.length} \n\n`);
+			res.write ('              \n');
+			res.write ('              \n');
+
+			theaters.forEach (function(theater){
+				res.write ('              \n');
+				res.write (`Nombre del teatro ${theater.name} \n`);
+				res.write (`Dirección: ${theater.address} \n`);
+				res.write (`Descripción: ${theater.description} \n`);
+				
+			})
+
+
+
+			res.end();
 			break;
 		case '/contacto':
 			res.end('Contacto');
